@@ -1,0 +1,38 @@
+{
+    "variables": {
+        "a":"acceleration",
+        "v0":"initial velocity",
+        "F":"force",
+        "h":"height",
+        "I":"rotational inertia",
+        "J":"impulse",
+        "K":"kinetic energy",
+        "k":"spring constant",
+        "l":"length",
+        "L":"angular momentum",
+        "m":"mass",
+        "N":"normal force",
+        "P":"power",
+        "p":"mometrum",
+        "r":"radius or distance",
+        "s":"position vector",
+        "T":"period",
+        "t":"time",
+        "U":"potential energy",
+        "v":"velocity",
+        "W":"work done on a system"
+    },
+    "equations": {
+        "v = v_{0}+t": {
+            "tags":[
+                "kinematics",
+                "point mass"
+            ],
+            "vars": [
+                "v",
+                "v0",
+                "t"
+            ]
+        }
+    }
+}
