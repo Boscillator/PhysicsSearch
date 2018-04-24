@@ -46,7 +46,17 @@
                                         </v-form>
                                     </div>
                                     <div v-else>
-                                        <math-equation v-for="result in results" v-bind:markup="result" v-bind:key="result"></math-equation>
+                                        <v-container fluid grid-list-lg>
+                                            <v-layout v-for="result in results"  v-bind:key="result" row wrap>
+                                                <v-flex xs12>
+                                                    <v-card>
+                                                        <v-card-title primary-title>
+                                                            <math-equation v-bind:markup="result"></math-equation>
+                                                        </v-card-title>
+                                                    </v-card>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-container>
                                     </div>
                                 </v-card-text>
                                 <v-card-actions>
