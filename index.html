@@ -4,6 +4,7 @@
 <head>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 
@@ -19,22 +20,39 @@
                                     <v-toolbar-title>P H Y S I C S</v-toolbar-title>
                                 </v-toolbar>
                                 <v-card-text>
-                                    <v-form v-if="database">
-                                        <h3>Select Givens</h3>
-                                        <v-container fluid>
-                                            <div v-for="chunk in variablesChunked">
-                                                <v-layout row wrap>
-                                                    <v-flex v-for="variable in chunk" xs6>
-                                                        <v-checkbox v-bind:label="variablesFullTitles[variable]" v-model="selectedVariables" v-bind:value="variable"></v-checkbox>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </div>
-                                        </v-container>
-                                    </v-form>
+                                    <div id="Questions" v-if="!results">
+                                        <v-form v-if="database">
+                                            <h3>Select Givens</h3>
+                                            <v-container fluid>
+                                                <div v-for="chunk in variablesChunked">
+                                                    <v-layout row wrap>
+                                                        <v-flex v-for="variable in chunk" xs6>
+                                                            <v-checkbox v-bind:label="variablesFullTitles[variable]" v-model="selectedVariables" v-bind:value="variable"></v-checkbox>
+                                                        </v-flex>
+                                                    </v-layout>
+                                                </div>
+                                            </v-container>
+
+                                            <h3>Select Objects in Scene</h3>
+                                            <v-container fluid>
+                                                <div v-for="chunk in tagsChuncked">
+                                                    <v-layout row wrap>
+                                                        <v-flex v-for="tag in chunk" xs6>
+                                                            <v-checkbox v-bind:label="tag" v-model="selectedTags" v-bind:value="tag"></v-checkbox>
+                                                        </v-flex>
+                                                    </v-layout>
+                                                </div>
+                                            </v-container>
+                                        </v-form>
+                                    </div>
+                                    <div v-else>
+                                        <math-equation v-for="result in results" v-bind:markup="result" v-bind:key="result"></math-equation>
+                                    </div>
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-spacer></v-spacer>
-                                    <v-btn color="primary">Go</v-btn>
+                                    <v-btn v-if="!results" color="primary" v-on:click="calculateAndSetResults">Go</v-btn>
+                                    <v-btn v-if="results" color="warning" v-on:click="returnToEdit">Back</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-flex>
@@ -43,7 +61,8 @@
             </v-content>
         </v-app>
     </div>
-    <script src="https://cdn.jsdelivr.net/combine/npm/lodash@4.17.5,npm/lodash@4.17.5/_apply.min.js,npm/lodash@4.17.5/_arrayAggregator.min.js,npm/lodash@4.17.5/_arrayEach.min.js,npm/lodash@4.17.5/_arrayEachRight.min.js,npm/lodash@4.17.5/_arrayEvery.min.js,npm/lodash@4.17.5/_arrayIncludes.min.js,npm/lodash@4.17.5/_arrayIncludesWith.min.js,npm/lodash@4.17.5/_arrayLikeKeys.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js" integrity="sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
     <script src="./index.js"></script>
