@@ -22,7 +22,8 @@
         "t":"time",
         "U":"potential energy",
         "v":"velocity",
-        "W":"work done on a system"
+        "W":"work done on a system",
+        "tau":"torque"
     },
     "equations": {
         "v = v_{0}+t": {
@@ -93,6 +94,28 @@
                 "F",
                 "m",
                 "a"
+            ]
+        },
+        "mgh = \\frac{1}{2}mv^2" : {
+            "tags" : [
+                "point mass",
+                "energy"
+            ],
+            "vars" : [
+                "m",
+                "g",
+                "h",
+                "v"
+            ]
+        },
+        "\\Delta \\Sigma (m_{i}v_{i}) = 0" : {
+            "tags" : [
+                "momentum",
+                "point mass"
+            ],
+            "vars" : [
+                "m",
+                "v"
             ]
         }
     }
