@@ -1,4 +1,5 @@
 /* global Vue */
+/* global _ */
 
 function getDatabase() {
     return new Promise(function(resolve, reject) {
@@ -23,8 +24,21 @@ var app = new Vue({
     data: {
         database: null,
         selectedVariables: [],
-        selectedVariables: {},
         title: 'Hello Vue!'
+    },
+    computed: {
+        variablesChunked: function() {
+            return _.chunk(Object.keys(this.database.variables), 2)
+        },
+        variablesFullTitles: function() {
+            let fullTitles = {}
+            for(let variable in this.database.variables) {
+                fullTitles[variable] = variable + ":" + this.database.variables[variable];
+            }
+            
+            return fullTitles;
+            
+        }
     },
     created: function() {
         var self = this;
