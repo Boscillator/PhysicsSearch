@@ -72,24 +72,27 @@ var app = new Vue({
             for (var equation in this.database.equations) {
                 var equationsDetails = this.database.equations[equation];
 
-                var num_tags = _.union(equationsDetails.tags, this.selectedTags).length;
-                var num_vars = _.union(equationsDetails.tags, this.selectedVariables).length;
-
+                var num_tags = _.intersection(equationsDetails.tags, this.selectedTags).length;
+                var num_vars = _.intersection(equationsDetails.vars, this.selectedVariables).length;
+                
+                var tot_points = POINTS_PER_TAG * equationsDetails.tags.length + POINTS_PER_VAR * equationsDetails.vars.length;
                 var points = POINTS_PER_TAG * num_tags + POINTS_PER_VAR * num_vars;
+                points /= tot_points;
 
                 equationsAndScores.push({
                     equation: equation,
                     points: points
                 });
             }
-            
-            console.log(equationsAndScores);
 
             var filteredEquationsAndScores = equationsAndScores.filter(function(es) {
                 return es.points > 0;
             })
             
-            var sortedEquationsAndScores = _.sortBy(filteredEquationsAndScores, ['points'], ['asc']);
+            var sortedEquationsAndScores = _.sortBy(filteredEquationsAndScores, ['points']);
+            _.reverse(sortedEquationsAndScores);
+            
+            console.log(sortedEquationsAndScores);
             
             this.results = sortedEquationsAndScores.map( function(es) {
                 return es.equation;
