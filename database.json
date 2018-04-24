@@ -2,6 +2,8 @@
     "variables": {
         "a":"acceleration",
         "v0":"initial velocity",
+        "x":"position",
+        "x0":"initial position",
         "F":"force",
         "h":"height",
         "I":"rotational inertia",
@@ -32,6 +34,65 @@
                 "v",
                 "v0",
                 "t"
+            ]
+        },
+        "v^2 = v_{0}^2+2a(x - x_{0})" : {
+            "tags" : [
+                "kinematics",
+                "point mass"
+            ],
+            "vars" : [
+                "v",
+                "v0",
+                "x",
+                "x0"
+            ]
+        },
+        "x = x_{0} + v_{0}t + \\frac{1}{2}at^2" : {
+            "tags" : [
+                "kinematics",
+                "point mass"
+            ],
+            "vars" : [
+                "x",
+                "x0",
+                "v0",
+                "a",
+                "t"
+            ]
+        },
+        "F = -kx" : {
+            "tags" : [
+                "springs",
+                "forces"
+            ],
+            "vars" : [
+                "F",
+                "k",
+                "x"
+            ]
+        },
+        "\\frac{1}{2}kx^2=\\frac{1}{2}mv^2" : {
+            "tags" : [
+                "springs",
+                "energy"
+            ],
+            "vars" : [
+                "k",
+                "x",
+                "m",
+                "v"
+            ]
+        },
+        "\\frac{\\Sigma F}{m} = a" : {
+            "tags" : [
+                "forces",
+                "point mass"
+            ],
+            "vars" : [
+                "F",
+                "m",
+                "a"
             ]
         }
     }
