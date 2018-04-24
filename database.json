@@ -6,7 +6,7 @@
         "x0":"initial position",
         "F":"force",
         "h":"height",
-        "I":"rotational inertia",
+        "I":"rotational moment of inertia",
         "J":"impulse",
         "K":"kinetic energy",
         "k":"spring constant",
@@ -23,7 +23,12 @@
         "U":"potential energy",
         "v":"velocity",
         "W":"work done on a system",
-        "tau":"torque"
+        "tau":"torque",
+        "alpha":"angular acceleration",
+        "omega":"angular velocity",
+        "omega0":"initial angular velocity",
+        "theta":"angle",
+        "theta0":"initial angle"
     },
     "equations": {
         "v = v_{0}+t": {
@@ -43,6 +48,7 @@
                 "point mass"
             ],
             "vars" : [
+                "a",
                 "v",
                 "v0",
                 "x",
@@ -117,6 +123,129 @@
                 "m",
                 "v"
             ]
+        },
+        "\\tau = Fr" : {
+            "tags" : [
+                "rotations",
+                "forces"
+            ],
+            "vars" : [
+                "tau",
+                "F",
+                "r"
+            ]
+        },
+        "\\tau = \\alpha I" : {
+            "tags" : [
+                "rotations",
+                "forces"
+            ],
+            "vars" : [
+                "tau",
+                "alpha",
+                "I"
+            ]
+        },
+        "E_{spin} = \\frac{1}{2} I \\omega^2" : {
+            "tags" : [
+                "energy",
+                "rotations"
+            ],
+            "vars" : [
+                "I",
+                "omega"
+            ]
+        },
+        "\\omega = \\omega_{0} + \\alpha t" : {
+            "tags" : [
+                "rotations",
+                "kinematics"
+            ],
+            "vars" : [
+                "omega",
+                "omega0",
+                "alpha",
+                "t"
+            ]
+        },
+        "\\theta = \\theta_{0} + \\omega_{0} r + \\frac{1}{2} \\alpha t^2" : {
+            "tags" : [
+                "rotations",
+                "kinematics"
+            ],
+            "vars" : [
+                "theta",
+                "theta0",
+                "omega",
+                "omega0",
+                "alpha",
+                "t"
+            ]
+        },
+        "\\omega^2 = \\omega_{0}^2 + 2 \\alpha (\\theta - \\theta_{0}" : {
+            "tags" : [
+                "rotations",
+                "kinematics"
+            ],
+            "vars" : [
+                "omega",
+                "omega0",
+                "alpha",
+                "theta",
+                "theta0"
+            ]
+        },
+        "\\Delta \\Sigma ( I_{i} \\omega_{i} )" : {
+            "tags" : [
+                "rotations",
+                "momentum"
+            ],
+            "vars" : [
+                "I",
+                "omega"
+            ]
+        },
+        "a = \\frac{m_{2} - m_{1}}{m_{2} + m_{1}} g" : {
+            "tags" : [
+                "pulleys",
+                "forces"
+            ],
+            "vars" : [
+                "a",
+                "m"
+            ]
+        },
+        "F_{G} = G \\frac{m_{1}m_{2}}{r^2}" : {
+            "tags" : [
+                "gravitation",
+                "forces"
+            ],
+            "vars" : [
+                "F",
+                "m",
+                "r"
+            ]
+        },
+        "U_{G} = - G \\frac{m_{1}m_{2}}{r}" : {
+            "tags" : [
+                "gravitation",
+                "energy"
+            ],
+            "vars" : [
+                "U",
+                "m",
+                "r"
+            ]
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
