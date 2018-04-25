@@ -35,7 +35,7 @@
                                                 </div>
                                             </v-container>
 
-                                            <h2>Select Objects in Scene</h2>
+                                            <h2>Tags</h2>
                                             <v-container fluid>
                                                 <div v-for="chunk in tagsChuncked">
                                                     <v-layout row wrap>
@@ -53,8 +53,19 @@
                                                 <v-flex xs12>
                                                     <v-card>
                                                         <v-card-title primary-title>
-                                                            <math-equation v-bind:markup="result"></math-equation>
+                                                            <div class="headline">
+                                                                <math-equation v-bind:markup="result"></math-equation>
+                                                            </div>
                                                         </v-card-title>
+                                                        <v-card-text>
+                                                            <div style="padding: 1em">
+                                                            <ul>
+                                                                <li v-for="variable in database.equations[result].vars">
+                                                                    {{variable}} : {{ database.variables[variable] }}
+                                                                </li>
+                                                            </ul>
+                                                            </div>
+                                                        </v-card-text>
                                                     </v-card>
                                                 </v-flex>
                                             </v-layout>
