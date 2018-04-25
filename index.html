@@ -59,11 +59,12 @@
                                                         </v-card-title>
                                                         <v-card-text>
                                                             <div style="padding: 1em">
-                                                            <ul>
-                                                                <li v-for="variable in database.equations[result].vars">
-                                                                    {{variable}} : {{ database.variables[variable] }}
-                                                                </li>
-                                                            </ul>
+                                                                <h4>{{ database.equations[result].description }}</h4>
+                                                                <ul>
+                                                                    <li v-for="variable in database.equations[result].vars">
+                                                                        {{variable}} : {{ database.variables[variable] }}
+                                                                    </li>
+                                                                </ul>
                                                             </div>
                                                         </v-card-text>
                                                     </v-card>
