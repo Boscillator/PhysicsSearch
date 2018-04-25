@@ -144,7 +144,7 @@
             ],
             "description" : "The torque applied by a force is equal to the force times the distance from the center of rotation."
         },
-        "\\tau = \\alpha I" : {
+        "\\Sigma \\tau = \\alpha I" : {
             "tags" : [
                 "rotations",
                 "forces"
@@ -177,7 +177,8 @@
                 "omega0",
                 "alpha",
                 "t"
-            ]
+            ],
+            "description" : "Provides an angular velocity given an initial angular velocity, angular acceleration, and time."
         },
         "\\theta = \\theta_{0} + \\omega_{0} r + \\frac{1}{2} \\alpha t^2" : {
             "tags" : [
@@ -191,7 +192,8 @@
                 "omega0",
                 "alpha",
                 "t"
-            ]
+            ],
+            "description" : "The complete rotational kinematics equation, given angle as a function of initial conditions, angular acceleration, and time"
         },
         "\\omega^2 = \\omega_{0}^2 + 2 \\alpha (\\theta - \\theta_{0}" : {
             "tags" : [
@@ -204,7 +206,8 @@
                 "alpha",
                 "theta",
                 "theta0"
-            ]
+            ],
+            "description" : "Equates angular position, velocity, and acceleration without using time."
         },
         "\\Delta \\Sigma ( I_{i} \\omega_{i} )" : {
             "tags" : [
@@ -214,7 +217,8 @@
             "vars" : [
                 "I",
                 "omega"
-            ]
+            ],
+            "description" : "The sum of the angular momentum in a system must remain constant."
         },
         "a = \\frac{m_{2} - m_{1}}{m_{2} + m_{1}} g" : {
             "tags" : [
@@ -224,7 +228,8 @@
             "vars" : [
                 "a",
                 "m"
-            ]
+            ],
+            "description" : "The acceleration of objects on an Atwood machine (pulley) given the two masses. Assumes a massless pulley"
         },
         "F_{G} = G \\frac{m_{1}m_{2}}{r^2}" : {
             "tags" : [
@@ -235,7 +240,8 @@
                 "F",
                 "m",
                 "r"
-            ]
+            ],
+            "description" : "The force of gravitation between two bodies given their masses."
         },
         "U_{G} = - G \\frac{m_{1}m_{2}}{r}" : {
             "tags" : [
@@ -246,7 +252,22 @@
                 "U",
                 "m",
                 "r"
-            ]
+            ],
+            "description" : "The potential energy from the force of gravitation, where the 0 point of energy is infinitely far from the body."
+        },
+        "a = \\frac{r^2g(m_{2}-m_{1})}{I}" : {
+            "tags" : [
+                "rotations",
+                "pulleys",
+                "forces"
+            ],
+            "vars" : [
+                "a",
+                "r",
+                "m",
+                "I"
+            ],
+            "description" : "The linear acceleration of an Atwood machine that has a pulley with a mass."
         }
     }
 }
