@@ -5,6 +5,9 @@
 var POINTS_PER_VAR = 2;
 var POINTS_PER_TAG = 1;
 
+function scrollToTop() {
+    window.scroll(0,0);
+}
 
 function firstUpper(value) {
     return value.charAt(0).toUpperCase() + value.substr(1);
@@ -104,9 +107,12 @@ var app = new Vue({
             this.results = sortedEquationsAndScores.map( function(es) {
                 return es.equation;
             })
+            
+            scrollToTop();
         },
         returnToEdit: function() {
             this.results = null;
+            scrollToTop();
         }
     },
     created: function() {
