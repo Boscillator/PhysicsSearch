@@ -22,18 +22,20 @@
                                 <v-card-text>
                                     <div id="Questions" v-if="!results">
                                         <v-form v-if="database">
-                                            <h3>Select Givens</h3>
+                                            <h2>Select Givens</h2>
                                             <v-container fluid>
                                                 <div v-for="chunk in variablesChunked">
                                                     <v-layout row wrap>
                                                         <v-flex v-for="variable in chunk" xs6>
-                                                            <v-checkbox v-bind:label="variablesFullTitles[variable]" v-model="selectedVariables" v-bind:value="variable"></v-checkbox>
+                                                            <h3>{{variablesFullTitles[variable]}}</h3>
+                                                            <v-checkbox label="Include" v-model="selectedVariables" v-bind:value="variable" color="green"></v-checkbox>
+                                                            <v-checkbox label="Exclude" v-model="negativelySelectedVars" v-bind:value="variable" color="red"></v-checkbox>
                                                         </v-flex>
                                                     </v-layout>
                                                 </div>
                                             </v-container>
 
-                                            <h3>Select Objects in Scene</h3>
+                                            <h2>Select Objects in Scene</h2>
                                             <v-container fluid>
                                                 <div v-for="chunk in tagsChuncked">
                                                     <v-layout row wrap>

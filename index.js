@@ -5,6 +5,11 @@
 var POINTS_PER_VAR = 2;
 var POINTS_PER_TAG = 1;
 
+
+function firstUpper(value) {
+    return value.charAt(0).toUpperCase() + value.substr(1);
+}
+
 function getDatabase() {
     return new Promise(function(resolve, reject) {
         var xhttp = new XMLHttpRequest();
@@ -36,6 +41,7 @@ var app = new Vue({
     data: {
         database: null,
         selectedVariables: [],
+        negativelySelectedVars: [],
         selectedTags: [],
         title: 'Hello Vue!',
         results: null
@@ -47,7 +53,7 @@ var app = new Vue({
         variablesFullTitles: function() {
             var fullTitles = {}
             for (var variable in this.database.variables) {
-                fullTitles[variable] = variable + ":" + this.database.variables[variable];
+                fullTitles[variable] = '"' + variable + '" : ' + firstUpper(this.database.variables[variable]);
             }
 
             return fullTitles;
@@ -72,24 +78,28 @@ var app = new Vue({
             for (var equation in this.database.equations) {
                 var equationsDetails = this.database.equations[equation];
 
-                var num_tags = _.union(equationsDetails.tags, this.selectedTags).length;
-                var num_vars = _.union(equationsDetails.tags, this.selectedVariables).length;
-
-                var points = POINTS_PER_TAG * num_tags + POINTS_PER_VAR * num_vars;
+                var num_tags = _.intersection(equationsDetails.tags, this.selectedTags).length;
+                var num_vars = _.intersection(equationsDetails.vars, this.selectedVariables).length;
+                var num_negs = _.intersection(equationsDetails.vars, this.negativelySelectedVars).length;
+                
+                var tot_points = POINTS_PER_TAG * equationsDetails.tags.length + POINTS_PER_VAR * equationsDetails.vars.length;
+                var points = POINTS_PER_TAG * num_tags + POINTS_PER_VAR * (num_vars - num_negs);
+                points /= tot_points;
 
                 equationsAndScores.push({
                     equation: equation,
                     points: points
                 });
             }
-            
-            console.log(equationsAndScores);
 
             var filteredEquationsAndScores = equationsAndScores.filter(function(es) {
                 return es.points > 0;
             })
             
-            var sortedEquationsAndScores = _.sortBy(filteredEquationsAndScores, ['points'], ['asc']);
+            var sortedEquationsAndScores = _.sortBy(filteredEquationsAndScores, ['points']);
+            _.reverse(sortedEquationsAndScores);
+            
+            console.log(sortedEquationsAndScores);
             
             this.results = sortedEquationsAndScores.map( function(es) {
                 return es.equation;
