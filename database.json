@@ -40,7 +40,8 @@
                 "v",
                 "v0",
                 "t"
-            ]
+            ],
+            "description" : "Gives you a velocity at time t given an initial velocity."
         },
         "v^2 = v_{0}^2+2a(x - x_{0})" : {
             "tags" : [
@@ -53,7 +54,8 @@
                 "v0",
                 "x",
                 "x0"
-            ]
+            ],
+            "description" : "Works best when trying to work in kinematics without using time."
         },
         "x = x_{0} + v_{0}t + \\frac{1}{2}at^2" : {
             "tags" : [
@@ -66,7 +68,8 @@
                 "v0",
                 "a",
                 "t"
-            ]
+            ],
+            "description" : "The ultimate kinematics equation, best for traveling over time."
         },
         "F = -kx" : {
             "tags" : [
@@ -77,7 +80,8 @@
                 "F",
                 "k",
                 "x"
-            ]
+            ],
+            "description" : "Gives the force from a spring given displacement x."
         },
         "\\frac{1}{2}kx^2=\\frac{1}{2}mv^2" : {
             "tags" : [
@@ -89,7 +93,8 @@
                 "x",
                 "m",
                 "v"
-            ]
+            ],
+            "description" : "Equates the energy from a spring compressed distance x and the energy of a mass in motion."
         },
         "\\frac{\\Sigma F}{m} = a" : {
             "tags" : [
@@ -100,7 +105,8 @@
                 "F",
                 "m",
                 "a"
-            ]
+            ],
+            "description" : "The sum of the forces divided by the mass is equal to the acceleration of an object."
         },
         "mgh = \\frac{1}{2}mv^2" : {
             "tags" : [
@@ -112,7 +118,8 @@
                 "g",
                 "h",
                 "v"
-            ]
+            ],
+            "description" : "Equates the potential energy given by a height h above the ground to the kinetic energy of an object."
         },
         "\\Delta \\Sigma (m_{i}v_{i}) = 0" : {
             "tags" : [
@@ -122,7 +129,8 @@
             "vars" : [
                 "m",
                 "v"
-            ]
+            ],
+            "description" : "The sum of the momentum in a system does not change."
         },
         "\\tau = Fr" : {
             "tags" : [
@@ -133,7 +141,8 @@
                 "tau",
                 "F",
                 "r"
-            ]
+            ],
+            "description" : "The torque applied by a force is equal to the force times the distance from the center of rotation."
         },
         "\\tau = \\alpha I" : {
             "tags" : [
@@ -144,7 +153,8 @@
                 "tau",
                 "alpha",
                 "I"
-            ]
+            ],
+            "description" : "The torque is equal to the angular acceleration times the moment of inertia."
         },
         "E_{spin} = \\frac{1}{2} I \\omega^2" : {
             "tags" : [
@@ -154,7 +164,8 @@
             "vars" : [
                 "I",
                 "omega"
-            ]
+            ],
+            "description" : "An equation for the rotational energy of a body."
         },
         "\\omega = \\omega_{0} + \\alpha t" : {
             "tags" : [
